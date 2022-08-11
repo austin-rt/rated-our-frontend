@@ -48,20 +48,12 @@
 
 ### **_Component Hierarchy Diagram:_**
 
-![Component Heirachy Diagram](https://i.imgur.com/Zwyt6AZ.jpg 'Component Heirachy Diagram')
+![Component Heirachy Diagram](https://i.imgur.com/Jf8QefB.jpg 'Component Heirachy Diagram')
 
 ### **_Planning_**
 
 #### [Review Trello Board](https://trello.com/b/d8YA7n90/project-3-group-project-full-stack-pern)
 
 #### [Pitch Deck](https://docs.google.com/presentation/d/11M8HGzGrm8CSpOnwoeq4S8t1Yv0SOahvGrRx6fpsFOU/edit?usp=sharing)
-
-<br />
-
-### **_Coming Soon..._**
-
-1. Map View
-2. Programiatically averaged ratings
-3. User to user interaction (post / comment / like / dislike)
 
 ###### Copyright &copy; 2022 Alexander Ab, Deonte LaBorde, Russell Ochoa, Austin Taylor
