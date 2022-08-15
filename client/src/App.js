@@ -5,6 +5,7 @@ import axios from 'axios'
 import { BASE_URL } from './globals'
 
 import Home from './pages/Home'
+import Nav from './components/Nav'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -21,7 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <Nav />
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<Home movies={movies} />} />
