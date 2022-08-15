@@ -22,6 +22,10 @@
     height: 60vh;
   }
   
+  .movie-details-image-container img{
+    border-radius: 20px;
+    height: 75vh;
+  }
 
 
 

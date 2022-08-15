@@ -5,6 +5,7 @@ return (
   <header>
     <nav>
       <h1>Rated Our</h1>
+      <Link to="/" className='link'><button className='nav-button'> Home </button></Link>
     </nav>
   </header>
 )
