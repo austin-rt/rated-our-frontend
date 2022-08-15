@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 
+import Home from './pages/Home'
+
 function App() {
   const [movies, setMovies] = useState([])
 
