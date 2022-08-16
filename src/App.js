@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Nav from './components/Nav'
 import MovieDetails from './pages/MovieDetails'
 import Register from './pages/Register'
+import Login from './pages/Login'
 
 function App() {
   const [movies, setMovies] = useState([])
