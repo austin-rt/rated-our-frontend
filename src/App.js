@@ -9,6 +9,7 @@ import Nav from './components/Nav'
 import MovieDetails from './pages/MovieDetails'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import About from './pages/About'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -59,6 +60,7 @@ function App() {
             }
           />
           <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
     </div>
