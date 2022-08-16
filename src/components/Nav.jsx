@@ -7,7 +7,8 @@ const Nav = ({authenticated, user, handleLogOut }) => {
       <nav>
         <h1>Rated Our</h1>
         <h1>{user.username}</h1>
-        <Link onClick={handleLogOut} to="/"></Link>
+        <Link to="/" className='link'><button className='nav-button'> Home </button></Link>
+        <Link onClick={handleLogOut} to="/" className='link'><button className='nav-button'> Log Out </button></Link>
         <Link to="/about" className='link'><button className='nav-button'> About </button></Link>
       </nav>
       )
