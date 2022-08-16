@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoginUser } from '../services/Authorize'
+import { Link } from 'react-router-dom'
 
 const Login = (props) => {
   const [formValues, setFormValues] = useState({ username: '', password: '' })
@@ -41,10 +42,19 @@ const Login = (props) => {
           required
         ></input>
 
-        <button disabled={!formValues.username || !formValues.password}>
+        <button
+          className="login-button"
+          disabled={!formValues.username || !formValues.password}
+        >
           Login
         </button>
       </form>
+      <h2>
+        Don't have an account?
+        <Link to="/register" className="link">
+          <button className="signup-button"> Sign Up </button>
+        </Link>
+      </h2>
     </div>
   )
 }
