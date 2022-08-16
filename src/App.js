@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 
-
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import MovieDetails from './pages/MovieDetails'
@@ -13,7 +12,7 @@ import Register from './pages/Register'
 function App() {
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
-  const [authenticated,toggleAuthenticated] = useState(false)
+  const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
   let navigate = useNavigate()
@@ -49,9 +48,16 @@ function App() {
             path="/movies/:id"
             element={<MovieDetails selectedMovie={selectedMovie} />}
           />
-          <Route 
-            path="/register" element = {<Register />}
+          <Route
+            path="/login"
+            element={
+              <Login
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
           />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </main>
     </div>
