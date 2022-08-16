@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 
+
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import MovieDetails from './pages/MovieDetails'
@@ -11,6 +12,8 @@ import MovieDetails from './pages/MovieDetails'
 function App() {
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
+  const [authenticated,toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
 
   let navigate = useNavigate()
 
