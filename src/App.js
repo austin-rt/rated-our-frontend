@@ -20,6 +20,22 @@ function App() {
 
   let navigate = useNavigate()
 
+  //Get All Movies
+  useEffect(() => {
+    const getMovies = async () => {
+      const res = await axios.get(`${BASE_URL}/movies`)
+      setMovies(res.data)
+      // console.log(res.data)
+    }
+    getMovies()
+  }, [])
+
+  //Click Movie
+  const chooseMovie = (selected) => {
+    setSelectedMovie(selected)
+    navigate(`/movies/${selected.id}`)
+  }
+
   //Logout
   const handleLogOut = () => {
     setUser(null)
@@ -40,22 +56,6 @@ function App() {
       checkToken()
     }
   }, [])
-
-  //Get All Movies
-  useEffect(() => {
-    const getMovies = async () => {
-      const res = await axios.get(`${BASE_URL}/movies`)
-      setMovies(res.data)
-      // console.log(res.data)
-    }
-    getMovies()
-  }, [])
-
-  //Click Movie
-  const chooseMovie = (selected) => {
-    setSelectedMovie(selected)
-    navigate(`/movies/${selected.id}`)
-  }
 
   return (
     <div className="App">
