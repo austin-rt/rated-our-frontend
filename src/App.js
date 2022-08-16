@@ -8,6 +8,7 @@ import { BASE_URL } from './globals'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import MovieDetails from './pages/MovieDetails'
+import Register from './pages/Register'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -20,7 +21,7 @@ function App() {
   //Get All Movies
   useEffect(() => {
     const getMovies = async () => {
-      const res = await axios.get(`${BASE_URL}/api/movies`)
+      const res = await axios.get(`${BASE_URL}/movies`)
       setMovies(res.data)
       // console.log(res.data)
     }
@@ -47,6 +48,9 @@ function App() {
           <Route
             path="/movies/:id"
             element={<MovieDetails selectedMovie={selectedMovie} />}
+          />
+          <Route 
+            path="/register" element = {<Register />}
           />
         </Routes>
       </main>

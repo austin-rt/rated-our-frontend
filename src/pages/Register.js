@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {RegisterUser} from '../services/Authorize'
 
 const Register = () => {
   const initialState = {
@@ -91,11 +92,11 @@ const Register = () => {
           required
         />
 
-        <button>
+        <button
           disabled=
           {!formValues.email ||
             (!formValues.password &&
-              formValues.confirmPassword === formValues.password)}
+              formValues.confirmPassword === formValues.password)} >
           Submit
         </button>
       </form>
