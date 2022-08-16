@@ -1,5 +1,5 @@
 const Home = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <div className="home-page">
       <div className="movies">
