@@ -10,6 +10,7 @@ import MovieDetails from './pages/MovieDetails'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import About from './pages/About'
+import { CheckSession } from './services/Authorize'
 
 function App() {
   const [movies, setMovies] = useState([])
@@ -18,6 +19,27 @@ function App() {
   const [user, setUser] = useState(null)
 
   let navigate = useNavigate()
+
+  //Logout
+  const handleLogOut = () => {
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
+
+  //Check if there is a token
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   //Get All Movies
   useEffect(() => {
@@ -38,7 +60,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Nav />
+        <Nav
+          authenticated={authenticated}
+          user={user}
+          handleLogOut={handleLogOut}
+        />
       </header>
       <main>
         <Routes>

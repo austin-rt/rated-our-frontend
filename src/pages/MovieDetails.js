@@ -1,5 +1,5 @@
 const MovieDetails = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <section className="movie-page">
       <div className="movie-details">
