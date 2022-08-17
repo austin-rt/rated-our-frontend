@@ -11,6 +11,8 @@ import MovieDetails from './pages/MovieDetails'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import About from './pages/About'
+import Profile from './pages/Profile'
+
 import { CheckSession } from './services/Authorize'
 
 function App() {
@@ -94,6 +96,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/review" element={<ReviewForm />} />
+          <Route
+            path="/profile"
+            element={<Profile user={user} authenticated={authenticated} />}
+          />
         </Routes>
       </main>
     </div>
