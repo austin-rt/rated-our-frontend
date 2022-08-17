@@ -12,6 +12,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import About from './pages/About'
 import Profile from './pages/Profile'
+
 import { CheckSession } from './services/Authorize'
 
 function App() {
@@ -75,7 +76,13 @@ function App() {
           />
           <Route
             path="/movies/:id"
-            element={<MovieDetails selectedMovie={selectedMovie} />}
+            element={
+              <MovieDetails
+                selectedMovie={selectedMovie}
+                authenticated={authenticated}
+                user={user}
+              />
+            }
           />
           <Route
             path="/login"
