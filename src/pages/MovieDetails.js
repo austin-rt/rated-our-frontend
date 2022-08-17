@@ -1,4 +1,4 @@
-import ReviewForm from '../components/ReviewForm'
+import ReviewForm from '../components/ReviewForm';
 
 const MovieDetails = (props) => {
   return (
@@ -12,21 +12,21 @@ const MovieDetails = (props) => {
             alt={props.selectedMovie.title}
           />
         </div>
-        <div className="movie-description">
-          <p>{props.selectedMovie.body}</p>
+        <div className="movie-details-description-container">
+          <p className="movie-details-description">{props.selectedMovie.body}</p>
         </div>
       </div>
       <ReviewForm user={props.user} authenticated={props.authenticated} />
-      <div className="movie-reviews">
+      <div className="movie-reviews-grid">
         {props.selectedMovie.movie_reviews.map((review) => (
-          <div className="review">
-            <h3>Rating: {review.rating}</h3>
+          <div className="review" key={review.id}>
             <h3>{review.body}</h3>
+            <h3>Rating: {review.rating}</h3>
           </div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MovieDetails
+export default MovieDetails;

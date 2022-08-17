@@ -1,7 +1,7 @@
 const Home = (props) => {
   return (
     <div className="home-page">
-      <div className="movies">
+      <div className="movies-grid">
         {props.movies.map((movie) => (
           <div className="movie-card">
             <h2 className="main-title">{movie.title}</h2>

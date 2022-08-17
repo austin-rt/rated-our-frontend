@@ -1,31 +1,108 @@
 .App {
   text-align: center;
+  color: white;
+  background-color: black;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
-.movies{
+nav {
+  height: 150px;
   display: flex;
-  flex-direction: column;
+  background-color: transparent;
+  box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.2);
+}
+
+.nav-title {
+  font-size: 5rem;
+  align-self: center;
+  font-weight: 400;
+}
+
+.nav-link {
+  margin-right: 15px;
+  align-self: center;
+  text-align: right;
+}
+
+.nav-right-links {
+  display: flex;
+  margin: auto 0 auto auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.logo-wrapper {
+  display: flex;
+  height: 150px;
+}
+
+.logo {
+  height: 100%;
+  align-self: center;
+  margin: 15px;
+  margin-top: 20px;
+}
+
+.movies-grid {
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 68px;
-  }
-  
-  .movie-card{
-    margin-top: 20px;
-    width: 960px;
-    cursor: pointer;
-    
-  }
-  
-  .movie-card img {
-    border-radius: 20px;
-    height: 60vh;
-  }
-  
-  .movie-details-image-container img{
-    border-radius: 20px;
-    height: 75vh;
-  }
+}
 
+.movie-card {
+  height: 100%;
+  margin: 12px;
+  overflow: hidden;
+  border-radius: 2.5rem;
+  transition: transform 300ms;
+}
 
+.movie-card:hover {
+  transform: scale(1.1);
+}
 
+.movie-card img {
+  border-radius: 20px;
+  height: 60vh;
+}
+
+.movie-details-image-container img {
+  border-radius: 20px;
+  height: 75vh;
+}
+
+.movie-details-description-container {
+  display: flex;
+  width: 75vw;
+  margin: 0 auto;
+}
+
+.movie-details-description {
+  font-size: 24px;
+  text-align: center;
+  align-self: center;
+}
+
+.movie-reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 25px;
+}
+
+.review {
+  outline: white solid 1px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: .5rem;
+  background: rgb(81, 81, 81);
+}
