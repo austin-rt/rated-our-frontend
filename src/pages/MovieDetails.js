@@ -1,5 +1,6 @@
 import ReviewForm from '../components/ReviewForm';
 
+
 const MovieDetails = (props) => {
   return (
     <section className="movie-page">
@@ -16,7 +17,9 @@ const MovieDetails = (props) => {
           <p className="movie-details-description">{props.selectedMovie.body}</p>
         </div>
       </div>
-      <ReviewForm user={props.user} authenticated={props.authenticated} />
+      <ReviewForm user={props.user} authenticated={props.authenticated} handleReviewChange={props.handleReviewChange}
+        handleReviewSubmit={props.handleReviewSubmit}
+        reviewFromState={props.reviewFromState} />
       <div className="movie-reviews-grid">
         {props.selectedMovie.movie_reviews.map((review) => (
           <div className="review" key={review.id}>

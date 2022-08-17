@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from './globals';
 import { CheckSession } from './services/Authorize';
+import { CreateReview } from './services/Authorize';
 import axios from 'axios';
 
 import Home from './pages/Home';
@@ -24,11 +25,11 @@ function App() {
   let navigate = useNavigate();
 
   //Get All Movies
+  const getMovies = async () => {
+    const res = await axios.get(`${BASE_URL}/movies`);
+    setMovies(res.data);
+  };
   useEffect(() => {
-    const getMovies = async () => {
-      const res = await axios.get(`${BASE_URL}/movies`);
-      setMovies(res.data);
-    };
     getMovies();
   }, []);
 
@@ -59,6 +60,35 @@ function App() {
     }
   }, []);
 
+  const initialReviewState = {
+    rating: '',
+    body: '',
+    movieId: '',
+    userId: ''
+  };
+
+  const [reviewFromState, setReviewFormState] = useState(initialReviewState);
+
+  const handleReviewChange = (event) => {
+    setReviewFormState({
+      ...reviewFromState,
+      [event.target.id]: event.target.value, movie_id: selectedMovie.id, user_id: user.id
+    });
+  };
+
+  const handleReviewSubmit = async (event) => {
+    event.preventDefault();
+    await CreateReview({
+      rating: reviewFromState.rating,
+      body: reviewFromState.body,
+      movieId: selectedMovie.id,
+      userId: user.id
+    });
+    setReviewFormState(initialReviewState);
+    navigate('/');
+    window.location.reload();
+  };
+
   return (
     <div className="App">
       <header>
@@ -81,6 +111,9 @@ function App() {
                 selectedMovie={selectedMovie}
                 authenticated={authenticated}
                 user={user}
+                handleReviewChange={handleReviewChange}
+                handleReviewSubmit={handleReviewSubmit}
+                reviewFromState={reviewFromState}
               />
             }
           />
