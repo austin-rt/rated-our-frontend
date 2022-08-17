@@ -1,5 +1,4 @@
 const MovieDetails = (props) => {
-  // console.log(props)
   return (
     <section className="movie-page">
       <div className="movie-details">
@@ -24,7 +23,7 @@ const MovieDetails = (props) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default MovieDetails
+export default MovieDetails;
