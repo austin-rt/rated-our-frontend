@@ -22,6 +22,7 @@ const MovieDetails = (props) => {
           <div className="review" key={review.id}>
             <h3>{review.body}</h3>
             <h3>Rating: {review.rating}</h3>
+            <h3>{review.user_reviews.username}</h3>
           </div>
         ))}
       </div>
