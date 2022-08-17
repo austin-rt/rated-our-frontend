@@ -29,6 +29,10 @@ nav {
   margin: auto 0 auto auto;
 }
 
+.username-display {
+  margin: auto auto 0 auto
+}
+
 a {
   color: white;
   text-decoration: none;
