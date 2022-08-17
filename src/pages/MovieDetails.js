@@ -1,3 +1,5 @@
+import ReviewForm from '../components/ReviewForm'
+
 const MovieDetails = (props) => {
   return (
     <section className="movie-page">
@@ -14,6 +16,7 @@ const MovieDetails = (props) => {
           <p>{props.selectedMovie.body}</p>
         </div>
       </div>
+      <ReviewForm user={props.user} authenticated={props.authenticated} />
       <div className="movie-reviews">
         {props.selectedMovie.movie_reviews.map((review) => (
           <div className="review">
@@ -23,7 +26,7 @@ const MovieDetails = (props) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default MovieDetails;
+export default MovieDetails
