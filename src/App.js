@@ -1,61 +1,62 @@
-import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BASE_URL } from './globals';
+import './App.css'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from './globals'
 
-import Home from './pages/Home';
-import ReviewForm from './components/ReviewForm';
-import Nav from './components/Nav';
-import MovieDetails from './pages/MovieDetails';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import About from './pages/About';
-import { CheckSession } from './services/Authorize';
+import Home from './pages/Home'
+import ReviewForm from './components/ReviewForm'
+import Nav from './components/Nav'
+import MovieDetails from './pages/MovieDetails'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import About from './pages/About'
+import Profile from './pages/Profile'
+import { CheckSession } from './services/Authorize'
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [authenticated, toggleAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [movies, setMovies] = useState([])
+  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [authenticated, toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   //Get All Movies
   useEffect(() => {
     const getMovies = async () => {
-      const res = await axios.get(`${BASE_URL}/movies`);
-      setMovies(res.data);
-    };
-    getMovies();
-  }, []);
+      const res = await axios.get(`${BASE_URL}/movies`)
+      setMovies(res.data)
+    }
+    getMovies()
+  }, [])
 
   //Click Movie
   const chooseMovie = (selected) => {
-    setSelectedMovie(selected);
-    navigate(`/movies/${selected.id}`);
-  };
+    setSelectedMovie(selected)
+    navigate(`/movies/${selected.id}`)
+  }
 
   //Logout
   const handleLogOut = () => {
-    setUser(null);
-    toggleAuthenticated(false);
-    localStorage.clear();
-  };
+    setUser(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
 
   //Check if there is a token
   const checkToken = async () => {
-    const user = await CheckSession();
-    setUser(user);
-    toggleAuthenticated(true);
-  };
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
     if (token) {
-      checkToken();
+      checkToken()
     }
-  }, []);
+  }, [])
 
   return (
     <div className="App">
@@ -88,10 +89,14 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/review" element={<ReviewForm />} />
+          <Route
+            path="/profile"
+            element={<Profile user={user} authenticated={authenticated} />}
+          />
         </Routes>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
