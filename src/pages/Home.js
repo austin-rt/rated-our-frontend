@@ -1,5 +1,4 @@
 const Home = (props) => {
-  // console.log(props)
   return (
     <div className="home-page">
       <div className="movies">
@@ -13,7 +12,7 @@ const Home = (props) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
