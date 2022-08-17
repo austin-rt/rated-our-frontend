@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {RegisterUser} from '../services/Authorize'
+import { RegisterUser } from '../services/Authorize'
 
 const Register = () => {
   const initialState = {
@@ -82,21 +82,23 @@ const Register = () => {
           required
         ></input>
 
-        <label htmlFor="confirmPassword"/>
+        <label htmlFor="confirmPassword" />
         <input
           onChange={handleChange}
           type="password"
           name="confirmPassword"
-          placeholder='Confirm Password'
+          placeholder="Confirm Password"
           value={formValues.confirmPassword}
           required
         />
 
         <button
-          disabled=
-          {!formValues.email ||
+          disabled={
+            !formValues.email ||
             (!formValues.password &&
-              formValues.confirmPassword === formValues.password)} >
+              formValues.confirmPassword === formValues.password)
+          }
+        >
           Submit
         </button>
       </form>
