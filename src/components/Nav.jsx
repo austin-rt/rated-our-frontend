@@ -5,11 +5,9 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <div>
-        <h1>Welcome, {user.username}!</h1>
-        <div>
-          <NavLink to="/profile" className='nav-link profile'>Profile</NavLink>
-          <NavLink onClick={handleLogOut} to="/" className='nav-link logout'>Log Out</NavLink>
-        </div>
+        <h1 className="username-display">Welcome, {user.username}!</h1>
+        <NavLink to="/profile" className='nav-link profile'>Profile</NavLink>
+        <NavLink onClick={handleLogOut} to="/" className='nav-link logout'>Log Out</NavLink>
       </div>
     );
   }
