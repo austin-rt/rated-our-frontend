@@ -1,22 +1,20 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 
-const ReviewForm = ({user, authenticated}) => {
+const ReviewForm = ({ user, authenticated }) => {
 
-  console.log(user)
+  let navigate = useNavigate();
 
-  let navigate = useNavigate()
-  
-    return (user && authenticated) ? (
-      <div className="Review-From">
+  return (user && authenticated) ? (
+    <div className="Review-From">
       <h1>review form</h1>
-      </div>
-    ) : (
-      <div className="Protected">
-        <h3>Please login in order to leave a review.</h3>
-        <button onClick={() => navigate('/login')}>Login</button>
-      </div>
-    )
-}
+    </div>
+  ) : (
+    <div className="Protected">
+      <h3>Please login in order to leave a review.</h3>
+      <button onClick={() => navigate('/login')}>Login</button>
+    </div>
+  );
+};
 
-export default  ReviewForm
+export default ReviewForm;

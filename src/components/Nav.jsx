@@ -1,45 +1,47 @@
-import {Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
-const Nav = ({authenticated, user, handleLogOut }) => {
-  let userOptions
-  if(user){
+const Nav = ({ authenticated, user, handleLogOut }) => {
+  let userOptions;
+  if (user) {
     userOptions = (
-      <nav>
-        <h1>Rated Our</h1>
-        <h1>{user.username}</h1>
-        <Link to="/" className='link'><button className='nav-button'> Home </button></Link>
-        <Link onClick={handleLogOut} to="/" className='link'><button className='nav-button'> Log Out </button></Link>
-        <Link to="/about" className='link'><button className='nav-button'> About </button></Link>
-      </nav>
-      )
+      <div>
+        <h1>Welcome, {user.username}!</h1>
+        <div>
+          <NavLink to="/profile" className='nav-link profile'>Profile</NavLink>
+          <NavLink onClick={handleLogOut} to="/" className='nav-link logout'>Log Out</NavLink>
+        </div>
+      </div>
+    );
   }
 
-const publicOptions = (
-  <nav>
-      <h1>Rated Our</h1>
-      <Link to="/" className='link'><button className='nav-button'> Home </button></Link>
-      <Link to="/login" className='link'><button className='nav-button'> Login </button></Link>
-      <Link to="/about" className='link'><button className='nav-button'> About </button></Link>
-  </nav>
-)
+  const publicOptions = (
+    <div>
+      <NavLink to="/login" className='nav-link login'>Login</NavLink>
+    </div>
+  );
 
 
 
-return (
-  <header>
-      <Link to="/">
+  return (
+    <nav>
+      <NavLink to="/">
         <div className="logo-wrapper" alt="logo">
           <img
             className="logo"
             src="https://i.imgur.com/0ceEQPz.png"
             alt="welcome banner"
           />
+          <h1 className='nav-title'>Rated Our</h1>
         </div>
-      </Link>
-      {authenticated && user ? userOptions : publicOptions}
-  </header>
-)
+      </NavLink>
+      <div className="nav-right-links">
+        <NavLink to="/" className='nav-link home'>Home</NavLink>
+        {authenticated && user ? userOptions : publicOptions}
+        <NavLink to="/about" className='nav-link about'>About</NavLink>
+      </div>
+    </nav>
+  );
 
-}
+};
 
-export default Nav
+export default Nav;
