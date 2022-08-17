@@ -9,6 +9,15 @@ export const RegisterUser = async (data) => {
   }
 }
 
+export const CreateReview = async (data) => {
+  try {
+    const res = await Client.post('/reviews/:movie_id/:user_id', data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const LoginUser = async (data) => {
   try {
     const res = await Client.post('/users/login', data)
