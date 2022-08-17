@@ -2,8 +2,7 @@ import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from './globals';
-import { CheckSession } from './services/Authorize';
-import { CreateReview } from './services/Authorize';
+import { CheckSession, CreateReview, DestroyReview } from './services/Authorize';
 import axios from 'axios';
 
 import Home from './pages/Home';
@@ -85,6 +84,16 @@ function App() {
       userId: user.id
     });
     setReviewFormState(initialReviewState);
+    navigate(`/`);
+    window.location.reload();
+  };
+
+  const editReview = () => {
+
+  };
+
+  const deleteReview = async (reviewId) => {
+    await DestroyReview(reviewId);
     navigate('/');
     window.location.reload();
   };
@@ -114,6 +123,7 @@ function App() {
                 handleReviewChange={handleReviewChange}
                 handleReviewSubmit={handleReviewSubmit}
                 reviewFromState={reviewFromState}
+                deleteReview={deleteReview}
               />
             }
           />
