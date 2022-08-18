@@ -16,13 +16,12 @@ const ReviewForm = ({ user, authenticated, reviewFromState, handleReviewChange, 
           rows='10'
           value={reviewFromState.body}
           onChange={handleReviewChange}
-          name={'body'}
+          name='body'
           placeholder={'Leave a review!'}
         />
         <div className="review-form-row2">
           <select
             className="review-rating"
-            defaultValue={reviewFromState.rating}
             id='rating'
             value={reviewFromState.rating}
             onChange={handleReviewChange}

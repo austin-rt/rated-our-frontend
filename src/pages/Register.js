@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Authorize'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RegisterUser } from '../services/Authorize';
 
 const Register = () => {
   const initialState = {
@@ -10,100 +10,114 @@ const Register = () => {
     username: '',
     password: '',
     confirmPassword: ''
-  }
-  const [formValues, setFormValues] = useState(initialState)
+  };
+  const [formValues, setFormValues] = useState(initialState);
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     await RegisterUser({
       firstName: formValues.firstName,
       lastName: formValues.lastName,
       email: formValues.email,
       username: formValues.username,
       password: formValues.password
-    })
-    setFormValues(initialState)
+    });
+    setFormValues(initialState);
 
-    navigate('/login')
-  }
+    navigate('/login');
+  };
   return (
-    <div className="register">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <label htmlFor="firstName"></label>
-        <input
-          onChange={handleChange}
-          name="firstName"
-          type="text"
-          placeholder="First Name"
-          value={formValues.firstName}
-          required
-        ></input>
-        <label htmlFor="lastName"></label>
-        <input
-          onChange={handleChange}
-          name="lastName"
-          type="text"
-          placeholder="Last Name"
-          value={formValues.lastName}
-          required
-        ></input>
-        <label htmlFor="email"></label>
-        <input
-          onChange={handleChange}
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={formValues.email}
-          required
-        ></input>
-        <label htmlFor="username"></label>
-        <input
-          onChange={handleChange}
-          name="username"
-          type="text"
-          placeholder="username"
-          value={formValues.username}
-          required
-        ></input>
+    <div className="register-form-container">
+      <form className="register-form form" onSubmit={handleSubmit}>
+        <div className='grid'>
+          <div className='first-name'>
+            <div className='firstName-label-container'><label htmlFor="firstName">First Name</label></div>
+            <input
+              onChange={handleChange}
+              name="firstName"
+              type="text"
+              placeholder="First Name"
+              value={formValues.firstName}
+              required
+            />
+          </div>
+          <div className='last-name'>
+            <div className="lastName-label-container"><label htmlFor="lastName">Last Name</label></div>
+            <input
+              onChange={handleChange}
+              name="lastName"
+              type="text"
+              placeholder="Last Name"
+              value={formValues.lastName}
+              required
+            />
+          </div>
+          <div className="email">
+            <div className="email-label-container"><label htmlFor="email">Email Address</label></div>
+            <input
+              onChange={handleChange}
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={formValues.email}
+              required
+            />
+          </div>
+          <div className="username">
+            <div className='username-label-container'><label htmlFor="username">Username</label></div>
+            <input
+              onChange={handleChange}
+              name="username"
+              type="text"
+              placeholder="username"
+              value={formValues.username}
+              required
+            />
+          </div>
+          <div className='password'>
+            <div className="password-label-container"><label htmlFor="password">Password</label></div>
+            <input
+              onChange={handleChange}
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={formValues.password}
+              required
+            />
+          </div>
+          <div className='confirm-password'>
+            <div className='confirmPassword-label-container'><label htmlFor="confirmPassword">Password Confirmation</label></div>
+            <input
+              onChange={handleChange}
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={formValues.confirmPassword}
+              required
+            />
+          </div>
 
-        <label htmlFor="password"></label>
-        <input
-          onChange={handleChange}
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={formValues.password}
-          required
-        ></input>
-
-        <label htmlFor="confirmPassword" />
-        <input
-          onChange={handleChange}
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formValues.confirmPassword}
-          required
-        />
-
-        <button
-          disabled={
-            !formValues.email ||
-            (!formValues.password &&
-              formValues.confirmPassword === formValues.password)
-          }
-        >
-          Submit
-        </button>
+        </div>
+        <div className="submit-button-container">
+          <button className="submit-button button"
+            disabled={
+              !formValues.email ||
+              (!formValues.password &&
+                formValues.confirmPassword === formValues.password)
+            }
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
