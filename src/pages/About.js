@@ -1,11 +1,10 @@
 const About = () => {
   return (
-    <div class="about-section">
-      <h1> About Rated Our&reg; </h1>
+    <div className="about-section">
+      <h1> About Rated Our&reg;</h1>
 
-      <div class="project details">
-        <p>
-          {' '}
+      <div className="project-details">
+        <p className="about-blurb">
           Rated Our is the newest and hottest resource for trusted
           recommendations for top-tier entertainment. Fans and crtics are able
           to voice their opinions, reactions, and takeaways from films available
@@ -14,8 +13,53 @@ const About = () => {
           place.
         </p>
 
+        <div className="team">
+          <h2>Meet the Team</h2>
+          <p className="about-blurb" > Rated Our could not exist without the members of our team.
+            This full-stack project has been developed by this talented team of developers.
+            Clicking the link will redirect you to their own personal LinkedIn profiles.
+            Do not be shy and give them a follow.
+          </p>
+          <div className="team-grid">
+            <div className="member-info">
+              <div className="pfp-container">
+                <img className="pfp" src="https://i.imgur.com/wDlekDg.jpg" />
+              </div>
+              <h2>Alexander Ab</h2>
+              <a href="https://www.linkedin.com/in/alexander-ab-831b01182/" target="_blank">
+                LinkedIn |
+              </a><a href="https://github.com/Arkeda221"> GitHub </a>
+            </div>
+            <div className="member-info">
+              <div className="pfp-container">
+                <img className="pfp" src="https://i.imgur.com/HmNNWxc.png" target="_blank" />
+              </div>
+              <h2>Austin Taylor</h2>
+              <a href="https://www.linkedin.com/in/austinrt/" target="_blank">LinkedIn |
+              </a><a href="https://www.github.com/austin-rt" target="_blank"> GitHub </a>
+            </div>
+            <div className="member-info">
+              <div className="pfp-container">
+                <img className="pfp" src="https://i.imgur.com/YI3J5Lz.png" />
+              </div>
+              <h2>Deonte LaBorde</h2>
+              <a href="https://www.linkedin.com/in/deonte-laborde/" target="_blank">LinkedIn |
+              </a><a href="https://www.github.com/deontelaborde" target="_blank"> GitHub </a>
+            </div>
+            <div className="member-info">
+              <div className="pfp-container">
+                <img className="pfp" src="https://i.imgur.com/KQlDdCq.png" />
+              </div>
+              <h2>Russell Ochoa</h2>
+              <a href="https://www.linkedin.com/in/russell-ochoa-7a2a9516/" target="_blank">
+                LinkedIn |
+              </a><a href="https://github.com/russellgochoa" target="_blank"> GitHub </a>
+            </div>
+          </div>
+        </div>
+
         <h2>How does Rated Our work?</h2>
-        <p>
+        <p className="about-blurb">
           Rated Our is a full-stack web application built on the PERN Stack.
           PostgreSQL manages our database which stores all information about
           users, movies, as well as the user's reviews for movies. Express is
@@ -31,38 +75,19 @@ const About = () => {
         </p>
 
         <h2>How to use Rated Our?</h2>
-        <p>
+        <p className="about-blurb">
           At the homepage, users will see all movies available throughout the
           database. Clicking on a movie will display details on the movies as
           well as reviews from other users. Here at Rated Our, we recommend all
           users to sign up to fully utilize the full capabitilies of
-          this application. With a personal account, the user can leave a rating and explain 
-          their reasoning, sharing their viewpoints and perspective. If the user changes their mind, that is okay. 
-          The user can update or delete their review. We’re all about debate and discussion at Rated Our, and want to know what our fans think. 
+          this application. With a personal account, the user can leave a rating and explain
+          their reasoning, sharing their viewpoints and perspective. If the user changes their mind, that is okay.
+          The user can update or delete their review. We’re all about debate and discussion at Rated Our, and want to know what our fans think.
           We trust that you will be able to enjoy what we have to offer and you have a place in this community to share your thoughts
         </p>
       </div>
 
-      <div class="team">
-        <h2>Meet the Team</h2>
-        <p>Rated Our could not exist without the members of our team. 
-          This full-stack project has been developed by this talented team of developers. 
-          Clicking the link will redirect you to their own personal LinkedIn profiles. 
-          Do not be shy and give them a follow. </p>
-        <h4>Alexander Ab</h4>
-        <a href="https://www.linkedin.com/in/alexander-ab-831b01182/">
-          LinkedIn
-        </a>
-        <h4>Austin Taylor</h4>
-        <a href="https://www.linkedin.com/in/austinrt/">LinkedIn</a>
-        <h4>Deonte LaBorde</h4>
-        <a href="https://www.linkedin.com/in/deonte-laborde/">LinkedIn</a>
-        <h4>Russell Ochoa</h4>
-        <a href="https://www.linkedin.com/in/russell-ochoa-7a2a9516/">
-          LinkedIn
-        </a>
-      </div>
     </div>
-  )
-}
-export default About
+  );
+};
+export default About;
