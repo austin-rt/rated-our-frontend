@@ -11,6 +11,7 @@ export default function UpdateReviewForm(props) {
           value={props.reviewFromState.body}
           onChange={props.onChange}
           name='body'
+          
         />
         <div className="review-form-row2">
           <select
