@@ -40,8 +40,8 @@ const ReviewForm = ({ user, authenticated, reviewFromState, handleReviewChange, 
     </div>
   ) : (
     <div className="Protected">
-      <h3>Please login to leave a review.</h3>
-      <button onClick={() => navigate('/login')}>Login</button>
+      <h3 className="please-login">Please login to leave a review.</h3>
+      <button className="login-button button" onClick={() => navigate('/login')}>Login</button>
     </div>
   );
 };
