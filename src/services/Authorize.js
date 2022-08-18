@@ -18,6 +18,14 @@ export const CreateReview = async (data) => {
   }
 };
 
+export const UpdateReview = async (data) => {
+  try {
+    const res = await Client.put(`/reviews/${data.id}`, data);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const DestroyReview = async (data) => {
   try {
     const res = await Client.delete(`/reviews/${data}`);

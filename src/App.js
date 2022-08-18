@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { BASE_URL } from './globals';
-import { CheckSession, CreateReview, DestroyReview } from './services/Authorize';
+import { CheckSession, CreateReview, DestroyReview, UpdateReview } from './services/Authorize';
 import axios from 'axios';
 
 import Home from './pages/Home';
@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import About from './pages/About';
 import Profile from './pages/Profile';
+import EditReview from './pages/EditReview';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const [review, setReview] = useState(null);
+  const [editing, setEditing] = useState(false);
 
   let navigate = useNavigate();
 
@@ -77,19 +80,36 @@ function App() {
 
   const handleReviewSubmit = async (event) => {
     event.preventDefault();
-    await CreateReview({
-      rating: reviewFromState.rating,
-      body: reviewFromState.body,
-      movieId: selectedMovie.id,
-      userId: user.id
-    });
-    setReviewFormState(initialReviewState);
-    navigate(`/`);
-    window.location.reload();
+    if (editing) {
+      await UpdateReview(reviewFromState);
+      setReviewFormState(initialReviewState);
+      let modifiedMovie = selectedMovie;
+      navigate('/');
+      window.location.reload();
+      // modifiedMovie.movie_reviews.splice(index, 1);
+      // navigate(`/movies/${selectedMovie.id}`);
+    } else {
+      await CreateReview({
+        rating: reviewFromState.rating,
+        body: reviewFromState.body,
+        movieId: selectedMovie.id,
+        userId: user.id
+      });
+      let modifiedMovie = selectedMovie;
+      modifiedMovie.movie_reviews.push(reviewFromState);
+      navigate('/');
+      window.location.reload();
+      // setSelectedMovie(modifiedMovie);
+      // setReviewFormState(initialReviewState);
+      // navigate(`/movies/${selectedMovie.id}`);
+    }
   };
 
-  const editReview = () => {
-
+  const editReview = (review, index) => {
+    setEditing(true);
+    setReview(review);
+    setReviewFormState(review);
+    navigate('/reviews/edit', { state: { index: index } });
   };
 
   const deleteReview = async (reviewId) => {
@@ -124,6 +144,7 @@ function App() {
                 handleReviewSubmit={handleReviewSubmit}
                 reviewFromState={reviewFromState}
                 deleteReview={deleteReview}
+                editReview={editReview}
               />
             }
           />
@@ -140,6 +161,17 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/review" element={<ReviewForm />} />
           <Route
+            path="/reviews/edit"
+            element={
+              <EditReview
+                review={review}
+                reviewFromState={reviewFromState}
+                onChange={handleReviewChange}
+                onSubmit={handleReviewSubmit}
+              />
+            }
+          />
+          <Route
             path="/profile"
             element={<Profile user={user} authenticated={authenticated} />}
           />
@@ -147,6 +179,6 @@ function App() {
       </main>
     </div>
   );
-}
+};
 
 export default App;

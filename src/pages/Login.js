@@ -1,28 +1,28 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { LoginUser } from '../services/Authorize'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LoginUser } from '../services/Authorize';
+import { Link } from 'react-router-dom';
 
 const Login = (props) => {
-  const [formValues, setFormValues] = useState({ username: '', password: '' })
-  let navigate = useNavigate()
+  const [formValues, setFormValues] = useState({ username: '', password: '' });
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const payload = await LoginUser(formValues)
-    setFormValues({ username: '', password: '' })
-    props.setUser(payload)
-    props.toggleAuthenticated(true)
-    navigate('/')
-  }
+    e.preventDefault();
+    const payload = await LoginUser(formValues);
+    setFormValues({ username: '', password: '' });
+    props.setUser(payload);
+    props.toggleAuthenticated(true);
+    navigate('/');
+  };
 
   return (
-    <div className="login">
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className="login-form-container">
+      <form className="login-form form" onSubmit={handleSubmit}>
         <label htmlFor="username"></label>
         <input
           onChange={handleChange}
@@ -43,7 +43,7 @@ const Login = (props) => {
         ></input>
 
         <button
-          className="login-button"
+          className="login-button button"
           disabled={!formValues.username || !formValues.password}
         >
           Login
@@ -51,12 +51,14 @@ const Login = (props) => {
       </form>
       <h2>
         Don't have an account?
-        <Link to="/register" className="link">
-          <button className="signup-button"> Sign Up </button>
-        </Link>
+        <div className="signup-button-container">
+          <Link to="/register" className="link">
+            <button className="signup-button button"> Sign Up </button>
+          </Link>
+        </div>
       </h2>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
