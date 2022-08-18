@@ -101,18 +101,29 @@ a:hover {
   align-self: center;
 }
 
+.movie-title {
+  font-size: 3rem;
+}
+
 .movie-reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 25px;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  margin: 35px 0px;
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .review {
+  width: 500px;
+  height: 300px;
   outline: white solid 1px;
   padding: 5px;
   margin: 10px;
   border-radius: .5rem;
-  background: rgb(81, 81, 81);
+  background: rgb(31, 31, 31);
 }
 
 .form {
@@ -169,5 +180,24 @@ a:hover {
 }
 
 .signup-button-container {
-  margin-top: 10px
+  margin: 10px auto;
+}
+
+.signup-button {
+  margin: 0 auto;
+}
+
+.register-form-container {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.please-login {
+  font-size: 2em;
 }
