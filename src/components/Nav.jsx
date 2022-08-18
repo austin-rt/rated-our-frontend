@@ -5,8 +5,8 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <div>
-        <h1 className="username-display">Welcome, {user.username}!</h1>
         <NavLink to="/profile" className='nav-link profile'>Profile</NavLink>
+        <NavLink to="/about" className='nav-link about'>About</NavLink>
         <NavLink onClick={handleLogOut} to="/" className='nav-link logout'>Log Out</NavLink>
       </div>
     );
@@ -14,6 +14,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
   const publicOptions = (
     <div>
+      <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to="/login" className='nav-link login'>Login</NavLink>
     </div>
   );
@@ -32,10 +33,10 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
           <h1 className='nav-title'>Rated Our</h1>
         </div>
       </NavLink>
+      <h1 className="username-display">Welcome{user && ` ${user.username}`}!</h1>
       <div className="nav-right-links">
         <NavLink to="/" className='nav-link home'>Home</NavLink>
         {authenticated && user ? userOptions : publicOptions}
-        <NavLink to="/about" className='nav-link about'>About</NavLink>
       </div>
     </nav>
   );
