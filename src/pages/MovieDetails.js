@@ -1,8 +1,6 @@
 import ReviewForm from '../components/ReviewForm'
 
 const MovieDetails = (props) => {
-  // window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-
   return (
     <section className="movie-page">
       <div className="movie-details">
