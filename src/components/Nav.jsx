@@ -22,7 +22,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
   return (
     <nav>
-      <NavLink to="/">
+      <NavLink to="/" className="nav-logo-link" >
         <div className="logo-wrapper" alt="logo">
           <img
             className="logo"

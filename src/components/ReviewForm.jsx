@@ -6,31 +6,42 @@ const ReviewForm = ({ user, authenticated, reviewFromState, handleReviewChange, 
   let navigate = useNavigate();
 
   return (user && authenticated) ? (
-    <div className="Review-From">
-      <h1 className='review-form-title'>Review form</h1>
-      <form className='review-form' onSubmit={handleReviewSubmit}>
-        <input
-          id='rating'
-          type='number'
-          value={reviewFromState.rating}
-          onChange={handleReviewChange}
-          name={'rating'}
-          placeholder={'Rate the movie 1-5'}
-        />
-        <input
+    <div className="review-from-container">
+      <h1 className='review-form-title'>Leave a review</h1>
+      <form className='review-form form' onSubmit={handleReviewSubmit}>
+        <textarea
+          className="review-body"
           id='body'
-          type='textarea'
+          cols='50'
+          rows='10'
           value={reviewFromState.body}
           onChange={handleReviewChange}
           name={'body'}
           placeholder={'Leave a review!'}
         />
-        <button className="submit-button">Submit</button>
+        <div className="review-form-row2">
+          <select
+            className="review-rating"
+            defaultValue={reviewFromState.rating}
+            id='rating'
+            value={reviewFromState.rating}
+            onChange={handleReviewChange}
+            name='rating'
+          >
+            <option value="" disabled hidden>Rating</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+          <button className="submit-button button">Submit</button>
+        </div>
       </form>
     </div>
   ) : (
     <div className="Protected">
-      <h3>Please login in order to leave a review.</h3>
+      <h3>Please login to leave a review.</h3>
       <button onClick={() => navigate('/login')}>Login</button>
     </div>
   );
