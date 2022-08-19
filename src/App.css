@@ -133,8 +133,7 @@ a:hover {
   margin: 10px 25px;
   border-radius: .5rem;
   background: rgb(32, 32, 32);
-  box-shadow: 5px 5px #999;
-  overflow: scroll;
+  box-shadow: 5px 5px #999;  
 }
 
 .form {
