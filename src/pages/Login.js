@@ -21,29 +21,32 @@ const Login = (props) => {
   };
 
   return (
-    <div className="login-form-container">
-      <form className="login-form form" onSubmit={handleSubmit}>
-        <label htmlFor="username"></label>
+    <div className='login-form-container'>
+      <form
+        className='login-form form'
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor='username'></label>
         <input
           onChange={handleChange}
-          name="username"
-          type="text"
-          placeholder="username"
+          name='username'
+          type='text'
+          placeholder='username'
           value={formValues.username}
           required
         ></input>
-        <label htmlFor="password"></label>
+        <label htmlFor='password'></label>
         <input
           onChange={handleChange}
-          name="password"
-          type="password"
-          placeholder="password"
+          name='password'
+          type='password'
+          placeholder='password'
           value={formValues.password}
           required
         ></input>
 
         <button
-          className="login-button button"
+          className='login-button button'
           disabled={!formValues.username || !formValues.password}
         >
           Login
@@ -51,9 +54,16 @@ const Login = (props) => {
       </form>
       <h2>
         Don't have an account?
-        <div className="signup-button-container">
-          <Link to="/register" className="link">
-            <button className="signup-button button"> Sign Up </button>
+        <div className='login-default-info-container'>
+          <div>username: admin</div>
+          <div>password: admin</div>
+        </div>
+        <div className='signup-button-container'>
+          <Link
+            to='/register'
+            className='link'
+          >
+            <button className='signup-button button'> Sign Up </button>
           </Link>
         </div>
       </h2>
