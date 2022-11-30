@@ -2,7 +2,7 @@
 
 ## Date: 8/11/2022
 
-## Group Members
+## Team Members
 
 ### Russell Ochoa
 
@@ -10,7 +10,7 @@
 
 ### Austin Taylor
 
-### [Website](http://wwww.austinrt.io) | [GitHub](https://github.com/austin-rt) | [LinkedIn](https://www.linkedin.com/in/austinrt/)
+### [Website](https://austinrt.io) | [GitHub](https://github.com/austin-rt) | [LinkedIn](https://www.linkedin.com/in/austinrt/)
 
 ### Deonte LaBorde
 
@@ -22,11 +22,11 @@
 
 ---
 
-## **Resources**
+## **_Links_**
 
 [Backend Repo](https://github.com/austin-rt/review-app-backend)
 
-[Deployed Website]()
+[Deployed Website](https://rated-our.vercel.app/)
 
 ---
 
@@ -40,11 +40,12 @@
 
 ### Pern Stack
 
+- PostgreSQL
+- Sequelize
 - React
 - Node
-- HTML
-- JavaScript
-- CSS
+- Railway
+- Vercel
 
 ### **_Component Hierarchy Diagram:_**
 
