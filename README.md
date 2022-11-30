@@ -32,7 +32,7 @@
 
 ## **_Description_**
 
-'Opinions are like...' well, you know the rest. Everybody's got one. And who DOESN'T have an opinion about their favorite (or least favorite) movies? is a full-stack PERN app that gives movie buffs a voice by creating an account to track and rate the movies they love, hate and everything in between. So sign up, login and get your Roger Ebert on! Let's go to the movies!
+'Opinions are like...' well, you know the rest. Everyone's got one. And who DOESN'T have an opinion about their favorite (or least favorite) movies? is a full-stack PERN app that gives movie buffs a voice by creating an account to track and rate the movies they love, hate and everything in between. So sign up, login and get your Roger Ebert on! Let's go to the movies!
 
 ---
 
